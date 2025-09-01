@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000; /* black background */
+      text-align: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      color: #fff; /* white text */
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #ff4da6; /* pink highlight */
+    }
+
+    .container {
+      margin-top: 20px;
+    }
+
+    input[type="date"] {
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      font-size: 16px;
+      background: #111;
+      color: #fff;
+    }
+
+    button {
+      margin-left: 10px;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 8px;
+      background: #ff4da6; /* pink button */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #e60073;
+    }
+
+    #image {
+      margin-top: 30px;
+      display: none;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff4da6;
+    }
+
+    .emoji {
+      position: fixed;
+      top: -50px;
+      font-size: 30px;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>What's the birthday of the most beautiful girl ever</h1>
+
+  <div class="container">
+    <input type="date" id="birthday" value="1991-10-01">
+    <button onclick="showSurprise()">Let's go</button>
+  </div>
+
+  <img id="image" src="https://placekitten.com/400/300" alt="Surprise Image">
+
+  <script>
+    const emojis = ["🩺","💊","💉","👩‍⚕️","🥼"];
+
+    function showSurprise() {
+      document.getElementById("image").style.display = "block";
+      startFalling();
+    }
+
+    function startFalling() {
+      setInterval(() => {
+        const emoji = document.createElement("div");
+        emoji.classList.add("emoji");
+        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        emoji.style.left = Math.random() * window.innerWidth + "px";
+        emoji.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+          emoji.remove();
+        }, 6000);
+      }, 500);
+    }
+  </script>
+</body>
+</html>
