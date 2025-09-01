@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Birthday Surprise</title>
   <style>
     body {
@@ -15,27 +16,33 @@
     }
 
     h1 {
-      margin-top: 30px;
-      font-size: 28px;
+      margin: 20px;
+      font-size: 6vw; /* responsive size */
       color: #ff4da6; /* pink highlight */
     }
 
     .container {
-      margin-top: 20px;
+      margin: 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      max-width: 90%;
     }
 
     input[type="date"] {
-      padding: 8px;
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid #555;
       font-size: 16px;
       background: #111;
       color: #fff;
+      flex: 1 1 180px;
+      min-width: 150px;
     }
 
     button {
-      margin-left: 10px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       border: none;
       border-radius: 8px;
       background: #ff4da6; /* pink button */
@@ -43,6 +50,8 @@
       font-size: 16px;
       cursor: pointer;
       transition: background 0.3s;
+      flex: 1 1 120px;
+      min-width: 120px;
     }
 
     button:hover {
@@ -50,9 +59,10 @@
     }
 
     #image {
-      margin-top: 30px;
+      margin-top: 20px;
       display: none;
-      max-width: 300px;
+      max-width: 90%;
+      height: auto;
       border-radius: 12px;
       box-shadow: 0 0 20px #ff4da6;
     }
@@ -60,7 +70,7 @@
     .emoji {
       position: fixed;
       top: -50px;
-      font-size: 30px;
+      font-size: 28px;
       pointer-events: none;
       animation: fall linear forwards;
     }
